@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block page_title %} All сourses {% endblock page_title %} 
+{% block content %}
+
+<table class="table mt-5  table-hover table-light table-borderless table-sm">
+    <thead class="table-dark">  
+        <tr>
+            <th></th>
+            <th>Cours Title</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Students Quantity</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for course in courses %}
+        <tr>
+            <td> <img src="{{ course.images.url }}" width="35" height="35" alt="{{ course.title }}"></td>
+            <td>{{ course.title }}</td>
+            <td>{{ course.category }}</td>
+            <td>{{ course.price }}</td>
+            <td>{{ course.students_qty }}</td>
+            <td><button type="button" class='btn btn-success btn-outline-light'
+                style="--bs-btn-padding-y: .2rem; --bs-btn-padding-x: 0.7rem; --bs-btn-font-size: 1rem;">Buy</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    
+{% endblock content %}
