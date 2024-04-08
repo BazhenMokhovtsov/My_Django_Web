@@ -1,15 +1,27 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from .models import Course
-from datetime import datetime
+from django.http import HttpResponse, Http404
+
 
 # Create your views here.
 
 def index(request):
     courses = Course.objects.all()
-    return render(request, 'courses.html', {'courses': courses})
+    return render(request, 'shop/courses.html', {'courses': courses})
 
-def time_now(request):
-    current_datetime = datetime.now()
-    print(current_datetime)  # Добавленная строка для проверки
-    return render(request, 'base.html', {'current_datetime': current_datetime})
+
+def single_course(request, course_id):
+
+# OPTIONS 1
+
+#     try:
+#         course = Course.objects.get(pk=course_id)
+#         return render(request, 'shop/single_course.html', {'course': course})
+#     except Course.DoesNotExist:
+#         raise Http404()
+
+# OPTION 2
+#This option processes a 404 error without a block "try, expect"
+
+    course = get_object_or_404(Course, pk=course_id)
+    return render(request, 'shop/single_course.html', {'course': course})

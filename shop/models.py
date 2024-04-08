@@ -21,6 +21,7 @@ class Course(models.Model):
     def __str__(self):
         return self.title
 
+
 class Image(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(blank=True, upload_to='images')
@@ -28,12 +29,4 @@ class Image(models.Model):
    
     def __str__(self):
         return self.title
-
-
-# class Image(models.Model):
-#     title = models.CharField(max_length=255)
-#     image = models.ImageField(blank=True, upload_to='images')
-#     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-   
-#     def __str__(self):
-#         return self.title
+    

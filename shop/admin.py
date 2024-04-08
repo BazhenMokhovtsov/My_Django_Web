@@ -3,4 +3,4 @@ from . import models
 
 admin.site.register(models.Category)
 admin.site.register(models.Course)
-# admin.site.register(models.Image)
+#admin.site.register(models.Image)

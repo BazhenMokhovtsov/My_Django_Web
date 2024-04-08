@@ -18,11 +18,13 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-import shop.views
+from shop import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('shop/', shop.views.index),
+    path('shop/', include('shop.urls')),
+    path('news/', include('blog.urls')),
+
 
 ]
 
