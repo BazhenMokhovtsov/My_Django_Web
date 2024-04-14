@@ -1,4 +1,6 @@
+
 {% extends "base.html" %}
+{% block page_title  %} news {% endblock  %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,62 @@
     <title>Document</title>
 </head>
 <body>
+    {% block content %}
+    {% for new in news %}
+    <hr>
+    <a href="{% url 'blog:single_new' new.id %}">
+        <h1 style="margin-bottom: 30px;">{{ new.title }}</h1>
+    </a>
     
+        
+    <h4>{{ new.text }}</h4>
+    <a>{{new.date}} / {{new.author}}</a>
+    
+    
+    
+    {% endfor %}
+    {% endblock content %}
 </body>
 </html>
+
+{% comment %} {% extends "base.html" %}
+
+{% block page_title %} News {% endblock page_title %} 
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+</head>
+<body>
+    <table class="table mx-5 table-hover table-light table-bordered-sm table-striped">
+        <thead class="table-dark">  
+            <tr>
+                <th>Title</th>
+                <th>Text</th>
+                <th>Created at</th>
+                <th>Author</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for new in news %}
+            <tr>
+                <td>{{ new.title }}</td>
+                <td>{{ new.text }}</td>
+                <td>{{ new.date}}</td>
+                <td>{{ new.author }}</td>
+            </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</body>
+{% endblock %}
+</html> {% endcomment %}
+
+
+

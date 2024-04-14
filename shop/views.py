@@ -14,14 +14,14 @@ def single_course(request, course_id):
 
 # OPTIONS 1
 
-#     try:
-#         course = Course.objects.get(pk=course_id)
-#         return render(request, 'shop/single_course.html', {'course': course})
-#     except Course.DoesNotExist:
-#         raise Http404()
+    try:
+        course = Course.objects.get(pk=course_id)
+        return render(request, 'shop/single_course.html', {'course': course})
+    except Course.DoesNotExist:
+        raise Http404()
 
 # OPTION 2
-#This option processes a 404 error without a block "try, expect"
+# This option processes a 404 error without a block "try, expect"
 
-    course = get_object_or_404(Course, pk=course_id)
-    return render(request, 'shop/single_course.html', {'course': course})
+    # course = get_object_or_404(Course, pk=course_id)
+    # return render(request, 'shop/single_course.html', {'course': course})

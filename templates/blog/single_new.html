@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block page_title %} aaaaaa {% endblock page_title %} 
+
+{% block content %}
+
+<div class="mt-5 mx-5">
+    <h1>Новость: {{ single_new.title }}</h1>
+    <hr>
+    <a> {{single_new.text}} </a>
+    <hr>
+    {% for new in new_comment %}
+    <div class="comment">
+        <h5 class="comment-author">Пользователь {{ new.author }} оставил коментарий</h5>
+        <p class="comment-text" >{{ new.text }}</p>
+        <p class="comment-date">Дата добавления: {{ new.create_date }}</p>
+        <td>
+            <button onclick= "location.href='{% url "blog:delete_comment" comment_id=new.id %}'">Удалить комментарий</button>
+        </td>
+    </div>
+ </form>
+    <hr class="comment-divider">
+    {% endfor %}
+    <form method="post">
+        {% csrf_token %}
+        {{ commend_form.text }} 
+        <input type="submit" value="Добавить комментарий">
+    </form>
+       
+</div>
+    
+
+{% endblock content %}
+</html>

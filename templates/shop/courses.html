@@ -22,14 +22,16 @@
             <td>
                 <a 
                 class="link-opacity-25-hover link-body-emphasis link-offset-2 link-underline link-underline-opacity-0" 
-                href={% url "shop:single_course" course.id %}>{{ course.title }}
+                href={% url "shop:single_course"  course.id %}>{{ course.title }}
                 </a>
             </td>
             <td>{{ course.category }}</td>
             <td>{{ course.price }}</td>
             <td>{{ course.students_qty }}</td>
-            <td><button type="button" class='btn btn-success btn-outline-light'
-                style="--bs-btn-padding-y: .2rem; --bs-btn-padding-x: 0.7rem; --bs-btn-font-size: 1rem;">Buy</button></td>
+            <td>
+                <button type="button" class='btn btn-success btn-outline-light'
+                style="--bs-btn-padding-y: .2rem; --bs-btn-padding-x: 0.7rem; --bs-btn-font-size: 1rem;">Buy</button>
+            </td>
             </tr>
             {% endfor %}
         </tbody>
